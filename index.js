@@ -83,14 +83,21 @@ function startPresence() {
         // buttons: [
         //     { label: process.env.BUTTON_1_LABEL, url: process.env.BUTTON_1_URL },
         // ]
-        // check if buttons are defined if not do not create the button array
-        buttons: process.env.BUTTON_1_LABEL ? [
-            // check if button 1 is defined if not do not create the button
+        // check if 2 buttons are defined and if theres one only create one button
+        buttons: process.env.BUTTON_1_LABEL && process.env.BUTTON_2_LABEL ? [
             { label: process.env.BUTTON_1_LABEL, url: process.env.BUTTON_1_URL },
-            // check if button 2 is defined if not do not create the button
-            process.env.BUTTON_2_LABEL ? { label: process.env.BUTTON_2_LABEL, url: process.env.BUTTON_2_URL } : { label: undefined, url: undefined }
+            { label: process.env.BUTTON_2_LABEL, url: process.env.BUTTON_2_URL }
+        ] : process.env.BUTTON_1_LABEL ? [
+            { label: process.env.BUTTON_1_LABEL, url: process.env.BUTTON_1_URL }
         ] : undefined
     });
+    //     buttons: process.env.BUTTON_1_LABEL ? [
+    //         // check if button 1 is defined if not do not create the button
+    //         { label: process.env.BUTTON_1_LABEL, url: process.env.BUTTON_1_URL },
+    //         // use an if statement to check if button 2 is defined if not do not create the button
+    //         process.env.BUTTON_2_LABEL ? { label: process.env.BUTTON_2_LABEL, url: process.env.BUTTON_2_URL } : null
+    //     ] : undefined
+    // });
 
     console.log('Presence started');
 }
