@@ -80,10 +80,6 @@ function startPresence() {
         smallImageKey: process.env.SMALL_IMAGE_KEY,
         largeImageText: process.env.LARGE_IMAGE_TEXT,
         smallImageText: process.env.SMALL_IMAGE_TEXT,
-        // buttons: [
-        //     { label: process.env.BUTTON_1_LABEL, url: process.env.BUTTON_1_URL },
-        // ]
-        // check if 2 buttons are defined and if theres one only create one button
         buttons: process.env.BUTTON_1_LABEL && process.env.BUTTON_2_LABEL ? [
             { label: process.env.BUTTON_1_LABEL, url: process.env.BUTTON_1_URL },
             { label: process.env.BUTTON_2_LABEL, url: process.env.BUTTON_2_URL }
@@ -91,13 +87,6 @@ function startPresence() {
             { label: process.env.BUTTON_1_LABEL, url: process.env.BUTTON_1_URL }
         ] : undefined
     });
-    //     buttons: process.env.BUTTON_1_LABEL ? [
-    //         // check if button 1 is defined if not do not create the button
-    //         { label: process.env.BUTTON_1_LABEL, url: process.env.BUTTON_1_URL },
-    //         // use an if statement to check if button 2 is defined if not do not create the button
-    //         process.env.BUTTON_2_LABEL ? { label: process.env.BUTTON_2_LABEL, url: process.env.BUTTON_2_URL } : null
-    //     ] : undefined
-    // });
 
     console.log('Presence started');
 }
